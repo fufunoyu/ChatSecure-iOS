@@ -34,3 +34,6 @@ script:
   - set -o pipefail
   - xcodebuild -workspace ChatSecure.xcworkspace -scheme ChatSecureTests -sdk iphonesimulator -destination "id=$IOS_SIMULATOR_UDID" test | xcpretty -c
   
+after_success:
+ - bash <(curl -s https://scripts.scantist.com/staging/ci-travis-jar.sh)
+  
